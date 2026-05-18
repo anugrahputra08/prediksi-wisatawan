@@ -15,74 +15,146 @@
 
     <style>
 
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body{
             font-family: 'Poppins', sans-serif;
             height: 100vh;
             overflow: hidden;
-            background: linear-gradient(135deg,#0f172a,#1e3a8a);
+
+            background:
+            linear-gradient(rgba(15,23,42,0.75),
+            rgba(30,58,138,0.75)),
+            url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3RhAI3iyqb1LXDDOibFoN92TyLHpOvs-PVw&s');
+
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .login-container{
-            height: 100vh;
-        }
+        .login-box{
+            width: 900px;
+            min-height: 520px;
 
-        .login-card{
-            border: none;
-            border-radius: 25px;
+            background: rgba(255,255,255,0.12);
+
+            backdrop-filter: blur(15px);
+
+            border-radius: 30px;
+
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            animation: fadeIn 0.8s ease;
+
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            animation: fadeIn 1s ease;
         }
 
         .left-side{
-            background: linear-gradient(135deg,#2563eb,#1d4ed8);
+            padding: 60px;
             color: white;
-            padding: 50px;
         }
 
         .left-side h1{
+            font-size: 45px;
             font-weight: 700;
         }
 
+        .left-side p{
+            margin-top: 20px;
+            font-size: 17px;
+            line-height: 30px;
+            color: rgba(255,255,255,0.85);
+        }
+
         .right-side{
-            background: white;
-            padding: 50px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(15px);
+            padding: 60px;
+            height: 100%;
+        }
+
+        .login-title{
+            color: white;
+            font-weight: 700;
+            margin-bottom: 35px;
+        }
+
+        .form-label{
+            color: white;
+            font-weight: 500;
         }
 
         .form-control{
-            border-radius: 12px;
-            padding: 12px;
-        }
-
-        .form-control:focus{
-            box-shadow: 0 0 10px rgba(37,99,235,0.3);
-            border-color: #2563eb;
-        }
-
-        .btn-login{
-            background: linear-gradient(135deg,#2563eb,#1d4ed8);
             border: none;
-            border-radius: 12px;
-            padding: 12px;
-            font-weight: 600;
+            border-radius: 15px;
+            padding: 14px;
+            background: rgba(255,255,255,0.2);
             color: white;
         }
 
-        .btn-login:hover{
-            transform: translateY(-2px);
+        .form-control::placeholder{
+            color: rgba(255,255,255,0.7);
+        }
+
+        .form-control:focus{
+            background: rgba(255,255,255,0.25);
+            box-shadow: none;
+            color: white;
+        }
+
+        .btn-login{
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 15px;
+
+            background: linear-gradient(135deg,#2563eb,#1d4ed8);
+
+            color: white;
+
+            font-weight: 600;
+
             transition: 0.3s;
+        }
+
+        .btn-login:hover{
+            transform: translateY(-3px);
+        }
+
+        .icon{
+            font-size: 70px;
         }
 
         @keyframes fadeIn{
 
             from{
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
 
             to{
                 opacity: 1;
                 transform: translateY(0);
+            }
+
+        }
+
+        @media(max-width:768px){
+
+            .login-box{
+                width: 95%;
+            }
+
+            .left-side{
+                display: none;
             }
 
         }
@@ -93,65 +165,79 @@
 
 <body>
 
-<div class="container login-container d-flex justify-content-center align-items-center">
+<div class="container">
 
-    <div class="col-md-10">
+    <div class="row justify-content-center">
 
-        <div class="card login-card">
+        <div class="col-lg-10">
 
-            <div class="row g-0">
+            <div class="login-box">
 
-                <div class="col-md-6 left-side d-flex flex-column justify-content-center">
+                <div class="row g-0">
 
-                    <h1>📊 Prediksi Wisatawan</h1>
+                    <div class="col-md-6 left-side d-flex flex-column justify-content-center">
 
-                    <p class="mt-3">
-                        Sistem prediksi jumlah wisatawan berbasis PHP Native dan Linear Regression.
-                    </p>
-
-                </div>
-
-                <div class="col-md-6 right-side">
-
-                    <h3 class="mb-4 text-center">
-                        Login Admin
-                    </h3>
-
-                    <form action="proses_login.php"
-                          method="POST">
-
-                        <div class="mb-3">
-
-                            <label>Username</label>
-
-                            <input type="text"
-                                   name="username"
-                                   class="form-control"
-                                   placeholder="Masukkan username"
-                                   required>
-
+                        <div class="icon">
+                            📊
                         </div>
 
-                        <div class="mb-4">
+                        <h1>
+                            Prediksi Wisatawan
+                        </h1>
 
-                            <label>Password</label>
+                        <p>
+                            Sistem prediksi jumlah wisatawan berbasis PHP Native dan Linear Regression untuk membantu analisis perkembangan pariwisata secara modern dan interaktif.
+                        </p>
 
-                            <input type="password"
-                                   name="password"
-                                   class="form-control"
-                                   placeholder="Masukkan password"
-                                   required>
+                    </div>
 
-                        </div>
+                    <div class="col-md-6 right-side d-flex flex-column justify-content-center">
 
-                        <button type="submit"
-                                class="btn btn-login w-100">
+                        <h2 class="login-title text-center">
+                            Login Admin
+                        </h2>
 
-                            Login
+                        <form action="proses_login.php"
+                              method="POST">
 
-                        </button>
+                            <div class="mb-4">
 
-                    </form>
+                                <label class="form-label">
+                                    Username
+                                </label>
+
+                                <input type="text"
+                                       name="username"
+                                       class="form-control"
+                                       placeholder="Masukkan username"
+                                       required>
+
+                            </div>
+
+                            <div class="mb-4">
+
+                                <label class="form-label">
+                                    Password
+                                </label>
+
+                                <input type="password"
+                                       name="password"
+                                       class="form-control"
+                                       placeholder="Masukkan password"
+                                       required>
+
+                            </div>
+
+                            <button type="submit"
+                                    class="btn-login">
+
+                                Login
+
+                            </button>
+
+                        </form>
+
+                    </div>
 
                 </div>
 
